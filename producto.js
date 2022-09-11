@@ -9,19 +9,23 @@ let recolectar_datos = function () {
   producto.precio_lista = document.querySelector('.dis-price').innerText
   producto.nombre = document.querySelector('#nombre').innerText
   producto.cantidad = 0
-  producto.talle = document.querySelector('input[type=radio]:checked')
-  producto.marca = document.querySelector('.brand').innerText
-  producto.fotos = [
-    'https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dwb9ac9d2d/products/DG_QCACPU001IB/DG_QCACPU001IB-3.JPG',
-    'https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dwfd0492d7/products/DG_QCACPU001IB/DG_QCACPU001IB-1.JPG',
-    'https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw77a26a9a/products/DG_QCACPU001IB/DG_QCACPU001IB-4.JPG'
+  producto.descripcion = document.querySelector('.about').innerText
+  producto.talle = document.querySelector('input[type=radio]:checked').value
+  producto.fotos = ['https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw7a39f4bf/products/DG_DUOJEU010B/DG_DUOJEU010B-3.JPG',
+      'https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dwf6158278/products/DG_DUOJEU010B/DG_DUOJEU010B-2.JPG',
+      'https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dwf6158278/products/DG_DUOJEU010B/DG_DUOJEU010B-1.JPG'
   ]
+
+  console.log(producto)
+  localStorage.setItem('miProducto', JSON.stringify(producto) )
+
 }
 
-console.log(producto)
+recolectar_datos()
 
-let formas_pago = {}
-  formas_pago.tarjeta = "Visa"
-  formas_pago.efectivo = "Rapipago"
-
-recolectar_datos
+let probamosLocalStorage = function() {
+  localStorage.setItem('precio',document.querySelector('.act-price').innerText)
+  localStorage.setItem('nombre',document.querySelector('#nombre').innerText)
+  localStorage.setItem('descuento',document.querySelector('.dis-price').innerText)
+  
+}
